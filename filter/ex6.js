@@ -36,5 +36,9 @@ function filterOffensiveComments(comments, bannedWords) {
   });
 }
 
+// function filterOffensiveComments(comments, bannedWords) {
+//   return comments.filter(arrItem => !bannedWords.includes(arrItem));
+// }
+
 // Ne pas modifier l'export
 module.exports = filterOffensiveComments;
