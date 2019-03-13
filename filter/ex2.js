@@ -16,6 +16,7 @@ Exemple d'entrée:
  */
 
 function getMultiplesOf(numbers, n) {
+  return numbers.filter( arrItem => arrItem % n == 0);
 }
 
 // Ne pas modifier l'export
