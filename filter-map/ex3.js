@@ -14,6 +14,16 @@ pour chaque campus gardé, un objet sous la forme : { VILLE: NB_ELEVES }.
 
 Arguments en entrée:
 
+const lg = 'PHP/Symfony';
+const histo = { };
+
+const filterCampusByLg = campus.filter((campu) => campu.curricullms.some((cv) => cv.name === lg));
+
+ filterCampusByLg.forEach((camp) => histo[camp.city] = 0);
+
+ filterCampusByLg.forEach((camp) => histo[camp.city] += (camp.curriculums.find((cv) => cv.name === lg )).numStudents);
+
+
 1. Tableau des campus:
 [
   { city: 'Bordeaux',
@@ -51,6 +61,17 @@ Sortie attendue:
 */
 
 function getStudentsPerCurriculum(campuses, curriculumName) {
+  let obj = [];
+  for (let i = 0; i < campuses.length; i++) {
+    if (campuses[i].curriculums.filter(item => item.name.includes(curriculumName) !== [])) {
+      obj[obj.length] = {
+        "city": campuses[i].city,
+        "curriculums": campuses[i].curriculums.filter(item => item.name.includes(curriculumName))
+      }
+    }
+  }
+  obj.filter(item => item.curriculums[0])
+  return obj;
 }
 
 module.exports = getStudentsPerCurriculum;
