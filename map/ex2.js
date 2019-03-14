@@ -34,7 +34,7 @@ Exemple d'entrée:
     }
   ]
 En sortie: [
-  'Bacon is not suitable for vegetarians',
+  'Bacon ',
   'Sausage is not suitable for vegetarians',
   'Tofu is suitable for vegetarians',
   'Chick Pea is suitable for vegetarians'
@@ -43,6 +43,10 @@ En sortie: [
  */
 
 function getFoodCategories(foods) {
+  return foods.map(arrItem =>
+    arrItem.isVegetarian ?
+      `${arrItem.food} is suitable for vegetarians` :
+      `${arrItem.food} is not suitable for vegetarians`);
 }
 
 
